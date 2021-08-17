@@ -28,6 +28,10 @@ class AbstractStack(metaclass=ABCMeta):
     def peek(self):
         pass
 
+    @abstractmethod
+    def clear(self):
+        pass
+
     def is_empty(self):
         return self._size == 0
 
@@ -68,3 +72,7 @@ class LinkedListStack(AbstractStack):
 
     def peek(self):
         return self._top.item if self._top else None
+
+    def clear(self):
+        self._size = 0
+        self._top = None
