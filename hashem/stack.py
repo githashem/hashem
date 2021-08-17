@@ -31,6 +31,14 @@ class AbstractStack(metaclass=ABCMeta):
     def is_empty(self):
         return self._size == 0
 
+    def multi_push(self, iterable):
+        for item in iterable:
+            self.push(item)
+
+    def multi_pop(self, number):
+        for _ in range(number):
+            self.pop()
+
 
 class StackNode:
     __slots__ = ['item', 'next']
