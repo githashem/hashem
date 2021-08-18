@@ -40,6 +40,5 @@ class LinkedListStackTest(unittest.TestCase):
         self.assertTrue(self.stack.is_empty(), "when items aren't in stack, stack must be empty")
 
 
-
-
-
+if __name__ == '__main__':
+    unittest.main()
