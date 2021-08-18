@@ -1,5 +1,7 @@
 from abc import abstractmethod, ABCMeta
 
+__all__ = ['AbstractStack', 'LinkedListStack', 'StackNode']
+
 
 class AbstractStack(metaclass=ABCMeta):
     def __init__(self):
@@ -55,24 +57,24 @@ class StackNode:
 class LinkedListStack(AbstractStack):
     def __init__(self):
         super().__init__()
-        self._top = None
+        self._head = None
 
     def push(self, item):
-        self._top = StackNode(item, self._top)
+        self._head = StackNode(item, self._head)
         self._size += 1
 
     def pop(self):
         if self.is_empty():
             return None
         else:
-            item = self._top.item
-            self._top = self._top.next
+            item = self._head.item
+            self._head = self._head.next
             self._size -= 1
             return item
 
     def peek(self):
-        return self._top.item if self._top else None
+        return self._head.item if self._head else None
 
     def clear(self):
         self._size = 0
-        self._top = None
+        self._head = None
