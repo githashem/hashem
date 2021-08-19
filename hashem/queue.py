@@ -1,7 +1,7 @@
-from abc import ABCMeta, abstractmethod
+from abc import ABC, abstractmethod
 
 
-class AbstractQueue(metaclass=ABCMeta):
+class AbstractQueue(ABC):
     def __init__(self):
         self._size = 0
 

@@ -1,9 +1,9 @@
-from abc import abstractmethod, ABCMeta
+from abc import ABC, abstractmethod
 
 __all__ = ['AbstractStack', 'LinkedListStack', 'StackNode']
 
 
-class AbstractStack(metaclass=ABCMeta):
+class AbstractStack(ABC):
     def __init__(self):
         self._size = 0
 
