@@ -4,6 +4,7 @@ __all__ = ['AbstractStack', 'LinkedListStack', 'StackNode']
 
 
 class AbstractStack(ABC):
+    """ Create a new stack that is empty """
     def __init__(self):
         self._size = 0
 
@@ -12,29 +13,36 @@ class AbstractStack(ABC):
 
     @property
     def size(self):
+        """ Return the number of items on the stack """
         return self._size
 
     @property
     def top(self):
+        """ Return the top item from the stack """
         return self.peek()
 
     @abstractmethod
     def push(self, item):
+        """ Add a item to the top of the stack """
         pass
 
     @abstractmethod
     def pop(self):
+        """ Remove the top item from the stack """
         pass
 
     @abstractmethod
     def peek(self):
+        """ Return the top item from the stack but does not remove it """
         pass
 
     @abstractmethod
     def clear(self):
+        """ Remove all items from the stack """
         pass
 
     def is_empty(self):
+        """ Return True if the stack is empty, False otherwise """
         return self._size == 0
 
     def multi_push(self, iterable):
@@ -47,6 +55,7 @@ class AbstractStack(ABC):
 
 
 class StackNode:
+    """ Represents a single stack node """
     __slots__ = ['item', 'next']
 
     def __init__(self, item, next=None):

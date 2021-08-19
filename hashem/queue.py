@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class AbstractQueue(ABC):
+    """ Create a new queue that is empty """
     def __init__(self):
         self._size = 0
 
@@ -10,35 +11,43 @@ class AbstractQueue(ABC):
 
     @property
     def size(self):
+        """ Return the number of items in the queue """
         return self._size
 
     @property
     @abstractmethod
     def front(self):
+        """ Return the front element of the queue """
         pass
 
     @property
     @abstractmethod
     def rear(self):
+        """ Return the rear element of the queue """
         pass
 
     @abstractmethod
     def enqueue(self, item):
+        """ Add a new item to the rear of the queue """
         pass
 
     @abstractmethod
     def dequeue(self):
+        """ Remove the front item from the queue """
         pass
 
     @abstractmethod
     def clear(self):
+        """ Remove all items from the queue """
         pass
 
     def is_empty(self):
+        """ Return True if the queue is empty, False otherwise """
         return self._size == 0
 
 
 class QueueNode:
+    """ Represents a single queue node """
     __slots__ = ['item', 'next']
 
     def __init__(self, item, next=None):
