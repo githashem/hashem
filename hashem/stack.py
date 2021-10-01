@@ -11,6 +11,9 @@ class AbstractStack(ABC):
     def __len__(self):
         return self._size
 
+    def __repr__(self):
+        return f"Stack({repr(self.top)})"
+
     @property
     def size(self):
         """ Return the number of items on the stack """
@@ -61,6 +64,9 @@ class StackNode:
     def __init__(self, item, next=None):
         self.item = item
         self.next = next
+
+    def __repr__(self):
+        return repr(self.item)
 
 
 class LinkedListStack(AbstractStack):
