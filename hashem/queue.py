@@ -11,6 +11,9 @@ class AbstractQueue(ABC):
     def __len__(self):
         return self._size
 
+    def __repr__(self):
+        return f"Queue({repr(self.front)})"
+
     @property
     def size(self):
         """ Return the number of items in the queue """
@@ -58,6 +61,9 @@ class QueueNode:
     def __init__(self, item, next=None):
         self.item = item
         self.next = next
+
+    def __repr__(self):
+        return repr(self.item)
 
 
 class LinkedListQueue(AbstractQueue):
