@@ -74,6 +74,12 @@ class LinkedListStack(AbstractStack):
         super().__init__()
         self._head = None
 
+    def __iter__(self):
+        node = self._head
+        while node:
+            yield node.item
+            node = node.next
+
     def push(self, item):
         self._head = StackNode(item, self._head)
         self._size += 1
