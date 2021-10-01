@@ -14,6 +14,12 @@ class AbstractQueue(ABC):
     def __repr__(self):
         return f"Queue({repr(self.front)})"
 
+    def __iter__(self):
+        node = self._front
+        while node:
+            yield node.item
+            node = node.next
+
     @property
     def size(self):
         """ Return the number of items in the queue """
